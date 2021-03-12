@@ -26,8 +26,8 @@ public class Snapping : MonoBehaviour
         
     }
     void OnTriggerEnter(Collider other) {
-        // if(other.tag == "Wall")
-        //     moveableInfo.relativeWall = other.gameObject;
+        if(other.tag == "Wall")
+            moveableInfo.relativeWall = other.gameObject;
     }
 
 }

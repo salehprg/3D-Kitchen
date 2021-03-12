@@ -7,13 +7,17 @@ public class MoveableInfo : MonoBehaviour
     public bool Wall;
     public bool Floor;
     public bool Roof;
-
+    public GameObject Pivot;
     public GameObject snappObj;
     public GameObject relativeWall;
+
+    Collider collider;
     void Start()
     {
+        collider = GetComponent<Collider>();
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
         float minDist = int.MaxValue;
+
         foreach (var wall in walls)
         {
             float distance = Vector3.Distance(transform.position , wall.transform.position);
@@ -25,8 +29,15 @@ public class MoveableInfo : MonoBehaviour
             }
         }
         
+        Snapping[] snapps = GetComponentsInChildren<Snapping>();
+
         if(Roof)
         {
+            foreach (var comp in snapps)
+            {
+                if(comp.direction == Dir.Top)
+                    Pivot = comp.gameObject;
+            }
             GameObject RoofGO = GameObject.FindGameObjectWithTag("Roof");
             transform.position = new Vector3(transform.position.x , RoofGO.transform.position.y , transform.position.z);
         }
@@ -34,6 +45,21 @@ public class MoveableInfo : MonoBehaviour
         {
             transform.position = new Vector3(relativeWall.transform.position.x , transform.position.y , relativeWall.transform.position.z);
         }
+        if(Floor)
+        {
+            transform.position = new Vector3(transform.position.x , collider.bounds.size.y / 2 , transform.position.z);
+        }
+
+        if(Pivot == null)
+        {
+            foreach (var comp in snapps)
+            {
+                if(comp.direction == Dir.Back)
+                    Pivot = comp.gameObject;
+            }
+        }
+        
+        MoveObjectToTarget(this.gameObject , transform.position);
     }
 
     // Update is called once per frame
@@ -44,20 +70,8 @@ public class MoveableInfo : MonoBehaviour
 
     public void MoveObjectToTarget(GameObject target , Vector3 destination)
     {
-        Collider collider = GetComponent<Collider>();
-        Debug.Log(collider.bounds.size.y);
         
 
-        float angle = Vector3.Angle(relativeWall.transform.forward , Vector3.forward);
-        float rX = Mathf.Sin(angle);
-        float rZ = Mathf.Cos(angle);
-
-        destination.x = destination.x - (rX * collider.bounds.size.x / 2);
-        destination.y = collider.bounds.size.y / 2;
-        destination.z = destination.z - (rZ * collider.bounds.size.z / 2);
-
-        Debug.Log("X : " + rX + " Z : " + rZ);
-        
         if(relativeWall != null)
         {
             transform.transform.eulerAngles = new Vector3(relativeWall.transform.eulerAngles.x
@@ -65,6 +79,10 @@ public class MoveableInfo : MonoBehaviour
                                                             ,relativeWall.transform.eulerAngles.z);
         }
 
-        transform.position = Vector3.Lerp(transform.position , destination , 100 * Time.deltaTime); 
+        Vector3 newPos = Vector3.Slerp(Pivot.transform.position , destination , 100 * Time.deltaTime); 
+
+        transform.position = newPos;
+        transform.position -= Pivot.transform.position - transform.position;
+
     }
 }

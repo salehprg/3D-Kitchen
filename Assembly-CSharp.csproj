@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C060B74E-0722-F97C-733C-5B738680DB95}</ProjectGuid>
+    <ProjectGuid>{0B3DE9F6-8C2C-9B01-1D09-55F7830C1130}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,33 +57,34 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Move.cs" />
      <Compile Include="Assets\Scripts\MoveableInfo.cs" />
+     <Compile Include="Assets\Scripts\ScaleWithDrag.cs" />
      <Compile Include="Assets\Scripts\Snapping.cs" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/Project/Unity/Kitchen Design/3D Kitchen/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
