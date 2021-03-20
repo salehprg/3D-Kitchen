@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\MoveableInfo.cs" />
      <Compile Include="Assets\Scripts\ScaleWithDrag.cs" />
      <Compile Include="Assets\Scripts\Snapping.cs" />
+     <Compile Include="Assets\Scripts\WallInfo.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Project/Unity/Kitchen Design/3d-kitchen/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Roof
   - Wall
+  - 2D Camera
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Roof
   - Wall
   - Floor
-  - 
+  - 2DPlan
   - 
   - 
   - 
