@@ -41,11 +41,14 @@ public class ScaleWithDrag : MonoBehaviour
         wall.SetParent(wallInfo.Left.transform);
         right.SetParent(wall);
 
+        initialScale = left.localScale;
+
         dist = Vector3.Distance(right.position , left.position);
     }
 
     private void OnMouseUp() {
-        //wall.SetParent(wallInfo.MainParent.transform);
+        wall.SetParent(wallInfo.MainParent.transform);
+        initialScale = wall.localScale;
     }
 
     private void OnMouseDrag() 
