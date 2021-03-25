@@ -10,6 +10,7 @@ public class MoveableInfo : MonoBehaviour
     public GameObject Pivot;
     public GameObject snappObj;
     public GameObject relativeWall;
+    public float rotateOffset = 180f;
 
     Collider collider;
     void Start()
@@ -59,7 +60,7 @@ public class MoveableInfo : MonoBehaviour
             }
         }
         
-        MoveObjectToTarget(this.gameObject , transform.position);
+        MoveObjectToTarget(transform.position , new Vector3(0,0,0));
     }
 
     // Update is called once per frame
@@ -68,14 +69,12 @@ public class MoveableInfo : MonoBehaviour
         
     }
 
-    public void MoveObjectToTarget(GameObject target , Vector3 destination)
+    public void MoveObjectToTarget(Vector3 destination , Vector3 normalSurface)
     {
-        
-
         if(relativeWall != null)
         {
             transform.transform.eulerAngles = new Vector3(relativeWall.transform.eulerAngles.x
-                                                            ,relativeWall.transform.eulerAngles.y - 180
+                                                            ,relativeWall.transform.eulerAngles.y - rotateOffset
                                                             ,relativeWall.transform.eulerAngles.z);
         }
 
@@ -84,5 +83,13 @@ public class MoveableInfo : MonoBehaviour
         transform.position = newPos;
         transform.position -= Pivot.transform.position - transform.position;
 
+        float angle = Vector3.SignedAngle(transform.forward , normalSurface , Vector3.up);
+        Debug.Log(angle);
+
+        if(angle == 180)
+            rotateOffset = 180;
+
+        if(angle == -180)
+            rotateOffset = 0;
     }
 }

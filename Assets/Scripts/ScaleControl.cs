@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScaleWithDrag : MonoBehaviour
+public class ScaleControl : MonoBehaviour
 {
-    public Transform wall;
+    
+    [HideInInspector]
     public Transform pivot;
+
+    [HideInInspector]
     public Transform secondPivot;
+
+    [HideInInspector]
+    public Transform wall;
 
     Vector3 initialScale;
     Camera mainCamera;
@@ -27,7 +33,7 @@ public class ScaleWithDrag : MonoBehaviour
         }
     }
 
-    public Vector3 refrenceVector;
+    Vector3 refrenceVector;
     Vector3 startPos;
     WallInfo wallInfo;
     float dist;
@@ -67,7 +73,7 @@ public class ScaleWithDrag : MonoBehaviour
         pivot.localEulerAngles += new Vector3(0 , angleRot , 0);
 
         float dist2 = Vector3.Distance(_pivot , mouseWorldPos);
-        Debug.Log(dist2 / dist);
+        //Debug.Log(dist2 / dist);
 
         pivot.localScale = new Vector3(initialScale.x * dist2 / dist , initialScale.y , initialScale.z);
         

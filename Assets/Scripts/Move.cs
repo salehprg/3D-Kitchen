@@ -91,7 +91,7 @@ public class Move : MonoBehaviour
             if(hit.transform != null && hit.transform.gameObject.tag == "Wall")
                 moveable.relativeWall = hit.transform.gameObject;
 
-            moveable.MoveObjectToTarget(touched , targetPos);
+            moveable.MoveObjectToTarget(targetPos , hit.normal);
         }
         if(Input.GetMouseButtonUp(0))
         {
